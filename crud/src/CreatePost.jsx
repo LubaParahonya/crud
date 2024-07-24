@@ -6,14 +6,20 @@ import { MdAddAPhoto } from "react-icons/md";
 import { IoIosVideocam } from "react-icons/io";
 import { CiSquareMore } from "react-icons/ci";
 import {Routes, Route, Link} from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 
 const CreatePost = ({valueInput, setValueInput, refInput, addPost}) => {
+  const history = useNavigate();
 
   const hendalSubmit = (e) =>{
     e.preventDefault()
     addPost(valueInput)
     setValueInput('')
+    history('/');
+    
+
+    
+    
   }
   return (
     <div>

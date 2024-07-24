@@ -5,10 +5,11 @@ import Home from './Home'
 import CreatePost from './CreatePost'
 import Post from './Post'
 import { RxCross2 } from "react-icons/rx";
-
+import { createBrowserHistory } from 'history';
 
 
 function App() {
+
 const [items, setItems] = useState(JSON.parse(localStorage.getItem('post')))
 const [valueInput, setValueInput] = useState('')
 const refInput = useRef()
@@ -29,9 +30,9 @@ const addPost = (valueInput) =>{
     <>
     
      <Routes>
-      <Route path='/' element = {<Home items={items}/>}/>
-      <Route path='/posts/new' element= {<CreatePost  valueInput={valueInput} setValueInput={setValueInput} refInput={refInput} addPost={addPost}/> } />
-      <Route path='/posts/{id}' element={<Post items={items}/>}/>
+      <Route path='/' element = {<Home items={items} />}/>
+      <Route path='/posts/new' element= {<CreatePost  valueInput={valueInput} setValueInput={setValueInput} refInput={refInput} addPost={addPost} /> } />
+      <Route path='/posts/:id([0-9]+)' element={<Post items={items}/>}/>
       </Routes>
     </>
   )
